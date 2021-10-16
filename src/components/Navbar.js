@@ -1,10 +1,10 @@
 import React from 'react'
 //use shortcut rf then enter
-export default function Navbar() {
+export default function Navbar(props) {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary" >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">Textutils</a>
+          <a className="navbar-brand" href="/">{props.title}</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
