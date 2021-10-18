@@ -24,6 +24,17 @@
           text.select();
           navigator.clipboard.writeText(text.value);
         }
+        const handleMode = ()=>{
+          if(style.backGround === "white"){
+            setDarkStyle({backGround:'#08141f',color:'white'})
+            document.body.style.background = '#08141f';
+          }
+          if(style.backGround === "#08141f"){
+            setDarkStyle({backGround:'white',color:'black'})
+            document.body.style.background = 'white';
+          }
+        }
+
         // it handle extra spaces
         const handleExtraSpaces = ()=>{
           let newText = text.split(/[ ]+/);
@@ -42,6 +53,8 @@
         const handleOnChange = (event)=>{
           setText(event.target.value) 
         } 
+
+
         let myStyle ={
           display: 'flex',
           flexDirection: 'row',
@@ -49,14 +62,17 @@
         }
       
       const[text,setText] = useState("");
+      // const[mode,setMode] = useState("light");
+      const[style,setDarkStyle] = useState({backGround:'white',color:'black'});
+
 
           return (
               <>
       <div className="container" style={myStyle}>
-     <div className="container" >
-      <div className="mb-3 my-3">
+     <div className="container" style={style} >
+      <div className="mb-3 my-3 "  >
         <h1>{props.heading}</h1>
-        <textarea className="form-control" value={text}  onChange={handleOnChange} id="myBox" rows="8" placeholder="Enter Your Text"></textarea>
+        <textarea className="form-control" value={text}   onChange={handleOnChange} id="myBox" rows="8" placeholder="Enter Your Text"></textarea>
 
         <button type="button" className="btn btn-primary my-3" onClick={handleUpClick} >Convert to UpperCase</button>
         <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
@@ -66,14 +82,14 @@
         
       </div>
       </div>
-      <div className="form-check form-switch  my-3">
-  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable dark mode</label>
+      <div className="form-check form-switch  my-3" >
+  <input className="form-check-input" type="checkbox" onClick={handleMode} role="switch" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={style}>Enable dark mode</label>
 </div>
 
 
     </div>
-      <div className="container my-3">
+      <div className="container my-3 " style={style}>
         <h2>Your Text Summary</h2> <hr /> 
         <p> <b> {text.split(" ").length }  words and {text.length}  characters</b></p>
         <p><b>{0.008 * text.split(" ").length} Minutes read </b></p>

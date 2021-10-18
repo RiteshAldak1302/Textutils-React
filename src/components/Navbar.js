@@ -1,8 +1,24 @@
 import React from 'react'
+// import React, { useState } from 'react'
 //use shortcut rf then enter
 export default function Navbar(props) {
+
+  // const [mode, setMode] = useState("primary")
+  // // const handleMode =()=>{
+  // //    if(mode ==="primary"){
+  // //     setMode("dark");
+  // //  }
+  // //  else{
+  // //    setMode("primary");
+  // //  }
+  // //  }
+
+
+
+
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary" >
+        <nav className={`navbar navbar-expand-lg navbar-dark bg-primary`} >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">{props.title}</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
