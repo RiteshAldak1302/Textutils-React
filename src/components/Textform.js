@@ -42,25 +42,36 @@
         const handleOnChange = (event)=>{
           setText(event.target.value) 
         } 
-        
+        let myStyle ={
+          display: 'flex',
+          flexDirection: 'row',
+          // marginLeft: '200px'
+        }
       
       const[text,setText] = useState("");
 
           return (
               <>
-     <div className="container">
+      <div className="container" style={myStyle}>
+     <div className="container" >
       <div className="mb-3 my-3">
         <h1>{props.heading}</h1>
         <textarea className="form-control" value={text}  onChange={handleOnChange} id="myBox" rows="8" placeholder="Enter Your Text"></textarea>
+
         <button type="button" className="btn btn-primary my-3" onClick={handleUpClick} >Convert to UpperCase</button>
         <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
         <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleClearClick} >Clear Text</button>
         <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleCopy} >Copy Text</button>
         <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleExtraSpaces} >Remove Extra Spaces</button>
         
-
-        
       </div>
+      </div>
+      <div className="form-check form-switch  my-3">
+  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable dark mode</label>
+</div>
+
+
     </div>
       <div className="container my-3">
         <h2>Your Text Summary</h2> <hr /> 
@@ -70,6 +81,7 @@
         <h3>Preview <hr /> </h3>
         <p>{text}</p>
 </div>
+
         </>
     )
 }
