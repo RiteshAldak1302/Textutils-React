@@ -101,7 +101,7 @@
       <div className="container my-3 " style={style}>
         <h2>Your Text Summary</h2> <hr/> 
         <p> <b> {text.split(" ").filter((element)=>{return element.length!==0}).length } words and {text.length}  characters</b></p>
-        <p><b>{0.008 * text.split(" ").length} Minutes read </b></p>
+        <p><b>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read </b></p>
         <hr /> 
         <h3>Preview <hr /> </h3>
         <p>{text}</p>
