@@ -68,7 +68,12 @@
 
           return (
               <>
+          <div className="alert alert-warning alert-dismissible fade show" role="alert">
+           <strong>success :</strong> dark mode is on.
+           <button type="button" className="btn-close alert-dismissible fade show" data-bs-dismiss="alert" aria-hidden="true" aria-label="Close"></button>
+        </div>
       <div className="container" style={myStyle}>
+
      <div className="container" style={style} >
       <div className="mb-3 my-3 "  >
         <h1>{props.heading}</h1>
@@ -90,8 +95,8 @@
 
     </div>
       <div className="container my-3 " style={style}>
-        <h2>Your Text Summary</h2> <hr /> 
-        <p> <b> {text.split(" ").length }  words and {text.length}  characters</b></p>
+        <h2>Your Text Summary</h2> <hr/> 
+        <p> <b> {text.split(" ").length } words and {text.length}  characters</b></p>
         <p><b>{0.008 * text.split(" ").length} Minutes read </b></p>
         <hr /> 
         <h3>Preview <hr /> </h3>
