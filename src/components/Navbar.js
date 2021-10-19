@@ -1,4 +1,5 @@
 import React from 'react'
+// import { Link } from 'react-router-dom'
 // import React, { useState } from 'react'
 //use shortcut rf then enter
 export default function Navbar(props) {
@@ -14,9 +15,6 @@ export default function Navbar(props) {
   // //  }
 
 
-
-
-
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark bg-primary`} >
         <div className="container-fluid">
@@ -30,12 +28,12 @@ export default function Navbar(props) {
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">Home</a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/">About</a>
+              {/* <li className="nav-item">
+                <Link className="nav-link" href="/about">About</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">Contact</a>
-              </li>
+                <Link className="nav-link" href="/">Contact</Link>
+              </li> */}
             </ul>
             <form className="d-flex">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

@@ -25,12 +25,14 @@
           navigator.clipboard.writeText(text.value);
         }
         const handleMode = ()=>{
-          if(style.backGround === "white"){
-            setDarkStyle({backGround:'#08141f',color:'white'})
+          if(style.backgroundColor === "white"){
+            setDarkStyle({backgroundColor:'#08141f',color:'white'})
+            setTextStyle({backgroundColor:'grey',color:'white'})
             document.body.style.background = '#08141f';
           }
-          if(style.backGround === "#08141f"){
-            setDarkStyle({backGround:'white',color:'black'})
+          if(style.backgroundColor === "#08141f"){
+            setDarkStyle({backgroundColor:'white',color:'black'})
+            setTextStyle({backgroundColor:'white',color:'black'})
             document.body.style.background = 'white';
           }
         }
@@ -54,6 +56,7 @@
           setText(event.target.value) 
         } 
 
+          
 
         let myStyle ={
           display: 'flex',
@@ -63,13 +66,13 @@
       
       const[text,setText] = useState("");
       // const[mode,setMode] = useState("light");
-      const[style,setDarkStyle] = useState({backGround:'white',color:'black'});
-
+      const[style,setDarkStyle] = useState({backgroundColor :'white',color:'black'});
+      const[textStyle,setTextStyle] = useState({backgroundColor :'white',color:'black'});
 
           return (
               <>
           <div className="alert alert-warning alert-dismissible fade show" role="alert">
-           <strong>success :</strong> dark mode is on.
+           <strong>Information :</strong> TextUtils is the text based utility and you can manupilate your text.
            <button type="button" className="btn-close alert-dismissible fade show" data-bs-dismiss="alert" aria-hidden="true" aria-label="Close"></button>
         </div>
       <div className="container" style={myStyle}>
@@ -77,7 +80,7 @@
      <div className="container" style={style} >
       <div className="mb-3 my-3 "  >
         <h1>{props.heading}</h1>
-        <textarea className="form-control" value={text}   onChange={handleOnChange} id="myBox" rows="8" placeholder="Enter Your Text"></textarea>
+        <textarea className="form-control" value={text}   onChange={handleOnChange} style={textStyle} id="myBox" rows="8" placeholder="Enter Your Text"></textarea>
 
         <button type="button" className="btn btn-primary my-3" onClick={handleUpClick} >Convert to UpperCase</button>
         <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
