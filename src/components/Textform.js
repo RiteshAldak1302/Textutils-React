@@ -22,6 +22,7 @@
         const handleCopy = ()=>{
           var text = document.getElementById('myBox');
           text.select();
+          document.getSelection().removeAllRanges();
           navigator.clipboard.writeText(text.value);
         }
         const handleMode = ()=>{
@@ -82,11 +83,11 @@
         <h1>{props.heading}</h1>
         <textarea className="form-control" value={text}   onChange={handleOnChange} style={textStyle} id="myBox" rows="8" placeholder="Enter Your Text"></textarea>
 
-        <button type="button" className="btn btn-primary my-3" onClick={handleUpClick} >Convert to UpperCase</button>
-        <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
-        <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleClearClick} >Clear Text</button>
-        <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleCopy} >Copy Text</button>
-        <button type="button" className="btn btn-primary my-3 mx-1" onClick={handleExtraSpaces} >Remove Extra Spaces</button>
+        <button type="button" disabled={text.length===0} className="btn btn-primary my-3" onClick={handleUpClick} >Convert to UpperCase</button>
+        <button type="button" disabled={text.length===0} className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
+        <button type="button" disabled={text.length===0} className="btn btn-primary my-3 mx-1" onClick={handleClearClick} >Clear Text</button>
+        <button type="button" disabled={text.length===0} className="btn btn-primary my-3 mx-1" onClick={handleCopy} >Copy Text</button>
+        <button type="button" disabled={text.length===0} className="btn btn-primary my-3 mx-1" onClick={handleExtraSpaces} >Remove Extra Spaces</button>
         
       </div>
       </div>
@@ -99,7 +100,7 @@
     </div>
       <div className="container my-3 " style={style}>
         <h2>Your Text Summary</h2> <hr/> 
-        <p> <b> {text.split(" ").length } words and {text.length}  characters</b></p>
+        <p> <b> {text.split(" ").filter((element)=>{return element.length!==0}).length } words and {text.length}  characters</b></p>
         <p><b>{0.008 * text.split(" ").length} Minutes read </b></p>
         <hr /> 
         <h3>Preview <hr /> </h3>
